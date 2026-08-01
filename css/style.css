@@ -1,70 +1,169 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    background-color: #f4f4f4;
-    color: #222;
+/* CSS Variables - Theme */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e293b;
+    --background-color: #f8fafc;
+    --card-color: #ffffff;
+    --text-color: #222;
+    --shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+
+/* Header */
 header {
-    background-color: #333;
+    background: var(--secondary-color);
     color: white;
     padding: 20px;
     text-align: center;
 }
 
+
+/* Flexbox Navigation */
 nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
     list-style: none;
-    padding: 0;
+    margin-top: 15px;
 }
 
-nav ul li {
-    display: inline;
-    margin: 15px;
-}
 
 nav a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
 }
 
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+
+/* Main Layout */
 main {
+    max-width: 1100px;
+    margin: auto;
     padding: 30px;
 }
 
+
+/* Sections */
 section {
+    background: var(--card-color);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+
+/* Grid Layout for Projects */
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+article {
     background: white;
     padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
 }
 
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
+
+article:hover {
+    transform: translateY(-5px);
 }
 
-input, textarea {
+
+/* Forms */
+input,
+textarea {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
+    padding: 12px;
+    margin: 8px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
+
 
 button {
-    padding: 10px 20px;
-    background: #333;
+    background: var(--primary-color);
     color: white;
+    padding: 12px 25px;
     border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+/* Footer */
+footer {
+    background: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+
+/* Skip Link Accessibility */
 .skip-link {
     position: absolute;
     left: -999px;
 }
 
+
 .skip-link:focus {
     left: 10px;
+    top: 10px;
     background: black;
     color: white;
+    padding: 10px;
+}
+
+
+/* Mobile First Responsive Design */
+@media (max-width: 768px) {
+
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+    .project-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    main {
+        padding: 15px;
+    }
+
 }
